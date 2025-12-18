@@ -1,13 +1,17 @@
 from typing import List, Dict, Any, Tuple
 
 from dotenv import load_dotenv
-from langchain.schema import Document
+from langchain_core.documents import Document
 from langchain_openai import ChatOpenAI
-from langchain.vectorstores.base import VectorStore
+from langchain_core.vectorstores import VectorStore
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.messages import HumanMessage, AIMessage
 import streamlit as st
+
+
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import OpenAIEmbeddings
 
 from utils import process_file, create_search_engine
 from prompt import PROMPT, WELCOME_MESSAGE
